@@ -1,6 +1,8 @@
 Overview
 ==========================
 
+[![Build Status](https://travis-ci.org/kylesm/vpcviewer.svg?branch=master)](https://travis-ci.org/kylesm/vpcviewer)
+
 vpcviewer provides a single-screen view of routing tables and subnet information for VPCs in AWS. When standing up or troubleshooting VPCs I found myself constantly flipping back and forth between the route table and subnet views in the AWS console. I wanted a single screen that would show all of the subnets in a given VPC as well as their route table and network information.
 
 The UI is read-only and individual items link directly to the resource in the AWS console where appropriate. Minimal AWS permissions are required for the app to work.
