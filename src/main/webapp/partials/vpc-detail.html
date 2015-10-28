@@ -1,0 +1,43 @@
+<div>
+    <h2>{{ vpc.name }}</h2>
+
+    <div style="font-style: italic">{{ vpc.vpcId }}</div>
+
+    <div class="panel panel-default col-md-6" style="padding: 0px" ng-repeat="subnet in vpc.subnets | orderBy: 'name'">
+        <div class="panel-heading"><h3 class="panel-title">{{ subnet.name }}</h3></div>
+        <div class="panel-body">
+            <dl class="dl-horizontal small">
+                <dt>ID:</dt>
+                <dd><a
+                    href="https://console.aws.amazon.com/vpc/home?region={{ region }}#subnets:filter={{ subnet.subnetId }}">{{
+                    subnet.subnetId }}</a></dd>
+                <dt>Zone:</dt>
+                <dd>{{ subnet.availabilityZone }}</dd>
+                <dt>CIDR:</dt>
+                <dd>{{ subnet.cidrBlock }}</dd>
+                <dt>Route table:</dt>
+                <dd><a
+                    href="https://console.aws.amazon.com/vpc/home?region={{ region }}#routetables:filter={{ subnet.routeTableId }}">{{
+                    subnet.routeTableId }}</a></dd>
+
+            </dl>
+        </div>
+
+        <table class="table table-condensed table-striped small">
+            <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Target</th>
+                <th>Propagated?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="route in subnet.routes">
+                <td>{{ route.destinationCidrBlock }}</td>
+                <td><aws-link href="{{route.instanceId || route.gatewayId || route.vpcPeeringConnectionId}}"></aws-link></td>
+                <td>tbd</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

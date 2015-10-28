@@ -1,0 +1,9 @@
+apply plugin: 'com.moowork.node'
+apply plugin: 'grunt'
+
+task bower(type: Exec) {
+   commandLine 'bower', 'install'
+}
+
+processResources.dependsOn 'bower'
+

@@ -1,0 +1,11 @@
+task gruntBuild(type: Exec) {
+   commandLine 'grunt', '--force', 'build'
+}
+task gruntTest(type: Exec) {
+   commandLine 'grunt', 'test'
+}
+gruntBuild.dependsOn 'npmInstall'
+gruntBuild.dependsOn 'bower'
+processResources.dependsOn gruntBuild
+test.dependsOn gruntTest
+bootRun.dependsOn gruntTest
