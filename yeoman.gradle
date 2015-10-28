@@ -1,9 +1,18 @@
 apply plugin: 'com.moowork.node'
 apply plugin: 'grunt'
 
+task npmInstallBower(type:Exec) {
+    workingDir projectDir
+    commandLine 'npm', 'install', '-g', 'bower'
+}
+
+npmInstallBower.dependsOn npmInstall
+npmInstallBower.onlyIf { "which bower".execute().waitFor() != 0 }
+
 task bower(type: Exec) {
    commandLine 'bower', 'install'
 }
 
+bower.dependsOn npmInstallBower
 processResources.dependsOn 'bower'
 
