@@ -29,6 +29,7 @@ If you're running in your local development environment you can just `gradle boo
 In other environments simply deploy the WAR file to your container of choice or, you can copy the Boot-repackaged WAR to a machine and run: `java -jar vpcviewer-<version>.war`
 
 vpcviewer uses the [DefaultAWSCredentialsProviderChain](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.html) and will look at several different places for AWS credentials:
+
 1. Environment Variables - AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY or AWS_ACCESS_KEY and AWS_SECRET_KEY
 2. Java System Properties - aws.accessKeyId and aws.secretKey
 3. Credential profiles file at the default location (~/.aws/credentials)
