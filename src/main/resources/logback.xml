@@ -4,7 +4,7 @@
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>utf-8</charset>
-            <Pattern>%date{HH:mm:ss.SSS} %-5p [%.15t] %c{1}: %m</Pattern>
+            <Pattern>%date{HH:mm:ss.SSS} %-5p [%.15t] %c: %m%n</Pattern>
         </encoder>
     </appender>
 
@@ -32,15 +32,16 @@
     <logger name="org.thymeleaf" level="WARN"/>
     <logger name="org.xnio" level="WARN"/>
     <logger name="com.mangofactory.swagger" level="WARN"/>
-    <logger name="com.wordnik.swagger" level="warn"/>
-    <logger name="sun.rmi.transport" level="warn"/>
+    <logger name="com.wordnik.swagger" level="WARN"/>
+    <logger name="sun.rmi.loader" level="WARN"/>
+    <logger name="sun.rmi.transport" level="WARN"/>
     <logger name="com.amazonaws" level="INFO"/>
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
         <resetJUL>true</resetJUL>
     </contextListener>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
 
