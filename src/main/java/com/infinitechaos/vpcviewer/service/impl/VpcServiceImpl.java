@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -115,8 +116,10 @@ public class VpcServiceImpl implements VpcService {
     private synchronized AmazonEC2 getClientForRegion(final String regionName) {
         return clients.computeIfAbsent(Regions.fromName(regionName), region -> {
             LOG.info("Creating client for region {}", region);
-            return Region.getRegion(region).createClient(
-                AmazonEC2Client.class, new DefaultAWSCredentialsProviderChain(), new ClientConfiguration());
+            return AmazonEC2ClientBuilder.standard()
+                .withRegion(region)
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .build();
         });
     }
 }

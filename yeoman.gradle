@@ -1,6 +1,3 @@
-apply plugin: 'com.moowork.node'
-apply plugin: 'grunt'
-
 task npmInstallBower(type:Exec) {
     workingDir projectDir
     commandLine 'npm', 'install', '-g', 'bower'

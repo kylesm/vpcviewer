@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Kyle Smith
+ * Copyright (c) 2015, 2019 Kyle Smith
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,13 +17,14 @@
 
 package com.infinitechaos.vpcviewer;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 public class ApplicationWebXml extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
         return application.sources(Application.class)
-            .showBanner(false);
+            .bannerMode(Banner.Mode.OFF);
     }
 }
