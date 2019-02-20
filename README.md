@@ -44,6 +44,6 @@ Required AWS permissions
 ------------------------
 
 The following permissions are required for vpcviewer to function:
-- describe route tables
-- describe subnets
-
+- ec2:DescribeVpcs
+- ec2:DescribeSubnets
+- ec2:DescribeRouteTables
