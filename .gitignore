@@ -12,5 +12,8 @@ node_modules
 .DS_Store
 src/main/webapp/dist
 src/main/webapp/bower_components
+src/main/webapp/assets/images
 .gradle
 build
+out
+lombok.config
